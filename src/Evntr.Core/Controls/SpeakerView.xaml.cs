@@ -12,15 +12,7 @@ namespace Evntr.Core.Controls
         }
 
         public static readonly BindableProperty AvatarUrlProperty =
-            BindableProperty.Create(nameof(AvatarUrl), typeof(string), typeof(SpeakerView), "",
-                                    propertyChanged: OnAvatarUrlChanged);
-
-        private static void OnAvatarUrlChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            var speakerView = (SpeakerView)bindable;
-
-            speakerView.avatar.Source = (string)newValue;
-        }
+            BindableProperty.Create(nameof(AvatarUrl), typeof(string), typeof(SpeakerView), "");
 
         public string AvatarUrl
         {
@@ -29,16 +21,8 @@ namespace Evntr.Core.Controls
         }
 
         public static readonly BindableProperty NameProperty =
-            BindableProperty.Create(nameof(Name), typeof(string), typeof(SpeakerView), "",
-                                    propertyChanged: OnNameChanged);
-
-        private static void OnNameChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            var speakerView = (SpeakerView)bindable;
-
-            speakerView.name.Text = (string)newValue;
-        }
-
+            BindableProperty.Create(nameof(Name), typeof(string), typeof(SpeakerView), "");
+        
         public string Name
         {
             get => (string)GetValue(NameProperty);
@@ -46,15 +30,7 @@ namespace Evntr.Core.Controls
         }
 
         public static readonly BindableProperty MiniBioProperty =
-            BindableProperty.Create(nameof(MiniBio), typeof(string), typeof(SpeakerView), "",
-                                    propertyChanged: OnMiniBioChanged);
-
-        private static void OnMiniBioChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            var speakerView = (SpeakerView)bindable;
-
-            speakerView.miniBio.Text = (string)newValue;
-        }
+            BindableProperty.Create(nameof(MiniBio), typeof(string), typeof(SpeakerView), "");
 
         public string MiniBio
         {
@@ -63,17 +39,7 @@ namespace Evntr.Core.Controls
         }
 
         public static readonly BindableProperty TextColorProperty =
-            BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(SpeakerView), Color.Black,
-                                    propertyChanged: OnTextColorChanged);
-
-        private static void OnTextColorChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            var speakerView = (SpeakerView)bindable;
-
-            var newColor = (Color)(newValue ?? TextColorProperty.DefaultValue);
-            speakerView.name.TextColor = newColor;
-            speakerView.miniBio.TextColor = newColor;
-        }
+            BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(SpeakerView), Color.Black);
 
         public Color TextColor
         {
